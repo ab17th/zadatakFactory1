@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Factory zadatak</title>
+	<meta charset="UTF-8">
+	<link href="css/style.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="js/jquery341.js"></script>
+</head>
+<body>
+	<div id="main">
+		<div id="content_left">
+			<div id="left_up">
+				<div id="left_up_slider">
+					<div class="slide active">
+						<img src="images/slider-image-7.jpg" alt="beach" />
+					</div>
+					<div class="slide">
+						<img src="images/slider-image-6.jpg" alt="women" />
+					</div>
+					<div class="slide">
+						<img src="images/slider-image-9.jpg" alt="animals" />
+					</div>
+					<div class="slide">
+						<img src="images/slider-image-8.jpg" alt="wave" />
+					</div>
+					<div class="slide">
+						<img src="images/slider-image-5.jpg" alt="surfer" />
+					</div>
+				</div> <!-- kraj left_up_slider -->
+			</div> <!-- kraj left_up -->
+			
+			<div id="left_down">
+				<div id="left_down_slider">
+					<div class="down active">
+					<img src="images/slider-image-4.jpg" alt="shore">
+					</div>
+					<div class="down">
+					<img src="images/slider-image-1.jpg" alt="rocks">
+					</div>
+					<div class="down">
+					<img src="images/slider-image-2.jpg" alt="tree">
+					</div>
+					<div class="down">
+					<img src="images/slider-image-3.jpg" alt="boxer">
+					</div>
+				</div> <!-- kraj left_down_slider -->
+				<div id="down_navig">
+					<div id="down_navig_right">
+						<button id="right_button" type="button"></button>
+					</div> <!-- kraj down_navig_right -->
+					<div id="down_navig_left">
+						<button id="left_button" type="button"></button>
+					</div> <!-- kraj down_navig_left -->
+				</div> <!-- kraj down_navig -->
+			</div> <!-- kraj left_down -->
+		</div> <!-- kraj content_left -->
+
+		<script type="text/javascript">
+			var first = $('.slide').first()
+			var last = $('.slide').last()
+			first.before(last)
+			var first = $('.slide').first()
+			var last = $('.slide').last()
+			last.after(first)
+			var slides = $('.slide');
+			slides.first().before(slides.last());
+			$('button').on('click', function() {
+  			slides = $('.slide');
+			var buttonUp = $(this);
+			var activeSlide = $('.active');
+			if (buttonUp.attr('id') == 'right_button') {
+    		slides.last().after(slides.first());
+    		activeSlide.removeClass('active').next('.slide').addClass('active');
+  			}
+  			if (buttonUp.attr('id') == 'left_button') {
+    		slides.first().before(slides.last());
+    		activeSlide.removeClass('active').prev('.slide').addClass('active');
+  			}
+			});
+
+			var first_down = $('.down').first()
+			var last_down = $('.down').last()
+			first_down.before(last_down)
+			var first_down = $('.down').first()
+			var last_down = $('.down').last()
+			last_down.after(first_down)
+			var downs = $('.down');
+			downs.first().before(downs.last());
+			$('button').on('click', function() {
+  			downs = $('.down');
+			var buttonDown = $(this);
+			var activeDown = $('.active');
+			if (buttonDown.attr('id') == 'right_button') {
+    		downs.last().after(downs.first());
+    		activeDown.removeClass('active').next('.down').addClass('active');
+  			}
+  			if (buttonDown.attr('id') == 'left_button') {
+    		downs.first().before(downs.last());
+    		activeDown.removeClass('active').prev('.down').addClass('active');
+  			}
+			});
+		</script>
+
+		<div id="content_right">
+			<h3>Lorem ipsum dolor sit amet consectetuer adipiscing elit</h3>
+			<p>Eleifend assentior id nam, mutat feugiat pericula ea pri. Atomorum partiendo urbanitas et qui, vel ferri tantas ex. Mei cu ridens mediocritatem. Ex mel numquam denique invenire, an corpora vivendum nominati his, sit volutpat neglegentur complectitur ex.</p>
+		</div>	<!-- kraj content_right -->
+	</div> <!-- kraj main -->
+</body>
+</html>
